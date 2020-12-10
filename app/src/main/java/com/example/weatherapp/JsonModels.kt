@@ -1,24 +1,27 @@
-package com.example.mobile_1_23233_weather
+package com.example.weatherapp
 
-class WeatherInfo {
-
-    data class CityWeather
+    class CityWeather
         (
+        val weather: List<Weather>,
+        val main: Temperature,
+        val sys: Country,
         val name: String,
-        val weather: Weather,
-        val main: Temp,
-        val sys: Country
-    )
-    data class Weather(
+        val coord: Coord
+        )
+        class Weather(
         val main: String,
         val description: String
-    )
-    data class Temp(
+        )
+    class Temperature(
         val temp: Float
     )
-    data class Country(
+    class Country(
         val country: String
     )
-}
+    class Coord(
+            val lon: Float,
+            val lat: Float
+    )
 
-class WeatherJson(val WeatherList: WeatherInfo.CityWeather)
+
+class WeatherJson(val list: List<CityWeather>)
